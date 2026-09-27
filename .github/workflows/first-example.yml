@@ -15,7 +15,7 @@ jobs:
         - name: run ascii script
           run: |
             chmod +x .github/workflows/ascii-script.sh
-            ./ascii-script.sh
+            ./.github/workflows/ascii-script.sh
 
         
        # - name: welcome message & list files & show current directory & Readme file content
