@@ -9,6 +9,9 @@ jobs:
       - name: checkout code
         uses: actions/checkout@v7
 
+      - name: install cowsay
+        run: sudo apt-get install -y cowsay
+
       - name: generate ascii artwork
         run: cowsay -f dragon "Welcome to my first example" >> dragon.txt
 
