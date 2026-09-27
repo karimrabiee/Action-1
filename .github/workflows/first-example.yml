@@ -46,8 +46,15 @@ jobs:
       needs: test-job-2
       runs-on: ubuntu-latest
       steps:
-        - name: show dragon.txt file content
-          run: cat dragon.txt
+       - name: download dragon.txt file
+         uses: actions/download-artifact@v8
+         with:
+            # Name of the artifact to download.
+            # If unspecified, all artifacts for the run are downloaded.
+            # Optional.
+           name: dragon-test-file
+       - name: show dragon.txt file content
+         run: cat dragon.txt
 
       #  - name: checkout code
       #    uses: actions/checkout@v7
