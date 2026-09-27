@@ -15,7 +15,7 @@ jobs:
       - name: generate ascii artwork
         run: cowsay -f dragon "Welcome to my first example" >> dragon.txt
 
-      - name: list files
+      - name: list files  
         run: ls -la
 
       - name: ensure dragon.txt file exists
