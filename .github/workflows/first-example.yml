@@ -7,16 +7,24 @@ jobs:
        runs-on: ubuntu-latest
        steps:
         - name: checkout code
-          uses: actions/checkout@v3
+          uses: actions/checkout@v7
         
-        - name: welcome message
-          run: echo "Hello World!"
+        - name: welcome message & list files & show current directory & Readme file content
+          run: |
+            echo "Welcome to my first example"
+            ls -la
+            pwd
+            cat README.md
 
-        - name: list files
-          run: ls -la
+        - name: generate ascii artwork
+          run: cowsay -f dragon "Welcome to my first example" >> dragon.txt
+          
 
-        - name: show current directory
-          run: pwd
+      #  - name: list files
+      #    run: ls -la
 
-        - name: Readme file content
-          run: cat README.md
+       # - name: show current directory
+       #   run: pwd
+
+       # - name: Readme file content
+       #   run: cat README.md
