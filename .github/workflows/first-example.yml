@@ -16,8 +16,8 @@ jobs:
             pwd
             cat README.md
 
-        - name: generate ascii artwork
-          run: cowsay -f dragon "Welcome to my first example" >> dragon.txt
+      #  - name: generate ascii artwork
+      #    run: cowsay -f dragon "Welcome to my first example" >> dragon.txt
           
 
       #  - name: list files

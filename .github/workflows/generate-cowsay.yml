@@ -1,0 +1,22 @@
+name: generate-cowsay
+
+on: push
+
+jobs:
+  generate-cowsay:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout code
+        uses: actions/checkout@v7
+
+      - name: generate ascii artwork
+        run: cowsay -f dragon "Welcome to my first example" >> dragon.txt
+
+      - name: list files
+        run: ls -la
+
+      - name: ensure dragon.txt file exists
+        run: grep -i "dragon.txt" <<< "$(ls -la)"
+      
+      - name: show dragon.txt file content
+        run: cat dragon.txt
