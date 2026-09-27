@@ -3,19 +3,62 @@ name: First Example
 on: push
 
 jobs:
-     first-job:
+     build-job-1:
        runs-on: ubuntu-latest
        steps:
-        - name: checkout code
-          uses: actions/checkout@v7
+        - name: install cowsay
+          run: sudo apt-get install -y cowsay
+
+        - name: generate ascii artwork
+          run: cowsay -f dragon "Welcome to my first example" >> dragon.txt
+
+        - name: upload dragon.txt file
+          uses: actions/upload-artifact@v7
+          with:
+          # Name of the artifact to upload.
+          # Optional. Default is 'artifact'
+            name: dragon-test-file
+
+           # A file, directory or wildcard pattern that describes what to upload
+           # Required.
+            path: dragon.txt
+
+
+          
+     test-job-2:
+      needs: build-job-1
+      runs-on: ubuntu-latest
+      steps:
+        - name: download dragon.txt file
+          uses: actions/download-artifact@v8
+          with:
+            # Name of the artifact to download.
+            # If unspecified, all artifacts for the run are downloaded.
+            # Optional.
+           name: dragon-test-file
+
+        
+        - name: test dragon.txt file existence
+          run: grep -i "dragon.txt" <<< "$(ls -la)"
+
+
+     deploy-job-3:
+      needs: test-job-2
+      runs-on: ubuntu-latest
+      steps:
+        - name: show dragon.txt file content
+          run: cat dragon.txt
+
+      #  - name: checkout code
+      #    uses: actions/checkout@v7
 
       #  - name : run ascii script
       #    run: bash .github/workflows/ascii-script.sh
 
-        - name: run ascii script
-          run: |
-            chmod +x .github/workflows/ascii-script.sh
-            ./.github/workflows/ascii-script.sh
+      #  - name: run ascii script
+      #   run: |
+      #      chmod +x .github/workflows/ascii-script.sh
+      #      ./.github/workflows/ascii-script.sh
 
         
        # - name: welcome message & list files & show current directory & Readme file content
