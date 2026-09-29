@@ -1,8 +1,8 @@
 name: configuration-matrix
 
 on: 
-  workflow_dispatch:
   push:
+  workflow_dispatch:
 
 jobs:
     deploy-on-ubuntu:
