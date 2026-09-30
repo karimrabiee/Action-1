@@ -19,7 +19,7 @@ on:
     branches:
       - main
     # optional path filtering, only trigger the workflow if changes are made to the specified paths
-    paths:
+    paths:  
       - 'src/**'
       - 'docs/**'
       - '.github/workflows/workflow-filtering.yml'
