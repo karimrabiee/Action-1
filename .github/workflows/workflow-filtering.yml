@@ -5,14 +5,16 @@ on:
     # optional branch filtering, only trigger the workflow if changes are pushed to the specified branches
     branches:
       - main
-      # this 
-      - '!feature/*'
+      - '!feature/**'
     # optional path filtering, only trigger the workflow if changes are made to the specified paths
     paths:
       - 'src/**'
       - 'docs/**'
       - '.github/workflows/workflow-filtering.yml'
   pull_request:
+    types: 
+      - opened
+      - closed
     # optional branch filtering, only trigger the workflow if pull_requests are opened against the specified branches
     branches:
       - main
