@@ -12,7 +12,7 @@ on:
     #   - 'docs/**'
     #   - '.github/workflows/workflow-filtering.yml'
   pull_request:
-    types: 
+    types:   
       - opened
       - closed
     # optional branch filtering, only trigger the workflow if pull_requests are opened against the specified branches
