@@ -5,7 +5,8 @@ on:
     # optional branch filtering, only trigger the workflow if changes are pushed to the specified branches
     branches:
       - main
-      - '!feature/**'
+      # this 
+      - '!feature/*'
     # optional path filtering, only trigger the workflow if changes are made to the specified paths
     paths:
       - 'src/**'
