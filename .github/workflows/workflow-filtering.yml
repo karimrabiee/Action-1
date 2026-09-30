@@ -7,10 +7,10 @@ on:
       - main
       - '!feature/**'
     # optional path filtering, only trigger the workflow if changes are made to the specified paths
-    paths:
-      - 'src/**'
-      - 'docs/**'
-      - '.github/workflows/workflow-filtering.yml'
+    # paths:
+    #   - 'src/**'
+    #   - 'docs/**'
+    #   - '.github/workflows/workflow-filtering.yml'
   pull_request:
     types: 
       - opened
