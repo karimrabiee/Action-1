@@ -3,7 +3,7 @@ on:
 
 jobs:
     test-self-runner:
-        runs-on: [self-hosted, linux, x64, prod]
+        runs-on: [self-hosted, linux, x64]
         steps:
             - name: say hello
               run: echo "Hello, karim!"
