@@ -6,4 +6,6 @@ jobs:
         runs-on: [self-hosted, windows, x64]
         steps:
             - name: say hello
-              run: echo "Hello, karim!"
+              run: |
+                echo "Hello, karim!"
+                sleep 1500
