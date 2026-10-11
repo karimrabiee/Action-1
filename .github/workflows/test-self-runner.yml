@@ -1,0 +1,9 @@
+on:
+    workflow_dispatch
+
+jobs:
+    test-self-runner:
+        runs-on: [self-hosted, linux, x64, prod]
+        steps:
+            - name: say hello
+              run: echo "Hello, karim!"
